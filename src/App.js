@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import AppStyle from './App.module.scss';
+import { Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/index";
+import * as pages from "./pages/index";
 
 function App() {
   return (
@@ -18,6 +21,14 @@ function App() {
           Learn React
         </a>
       </header>
+      <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route index element={<pages.Home />} />
+          <Route path="about" element={<pages.About />} />
+          <Route path="archive" element={<pages.Archive />} />
+          <Route path="*" element={<pages.NoMatch />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
