@@ -1,10 +1,10 @@
 import React from 'react';
 import ArchiveStyle from './Archive.module.scss';
 import ReactMarkdown from 'react-markdown';
-
 function Archive() {
+  const data = require('../asset/archives/index.json');
   const [content, setContent] = React.useState();
-  const file = require('../asset/archives/content/test1.md');
+  const file = require(`../asset/archives/content/${data[0].contentFile}`);
   fetch(file)
     .then((response) => response.text())
     .then((text) => {
