@@ -25,7 +25,8 @@ function App() {
         <Route path="/" element={<Navbar />}>
           <Route index element={<pages.Home />} />
           <Route path="about" element={<pages.About />} />
-          <Route path="archive" element={<pages.Archive />} />
+          <Route path="archives" element={<pages.Archives />} />
+          <Route path="archive/:slug" element={<pages.Archive />} />
           <Route path="*" element={<pages.NoMatch />} />
         </Route>
       </Routes>
