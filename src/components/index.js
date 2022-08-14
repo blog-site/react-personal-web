@@ -1,2 +1,4 @@
 import Navbar from "./Navbar";
-export { Navbar };
+import ListArchives from "./ListArchives";
+import GetArchive from "./GetArchive";
+export { Navbar, ListArchives, GetArchive };

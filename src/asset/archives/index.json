@@ -1,7 +1,12 @@
 [
   {
     "title": "Title1",
-    "contentFile": "test1.md",
-    "slug": "title1"
+    "contentFile": "content1.md",
+    "slug": "slug1"
+  },
+  {
+    "title": "Title2",
+    "contentFile": "content2.md",
+    "slug": "slug2"
   }
 ]
