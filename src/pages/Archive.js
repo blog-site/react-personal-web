@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import ArchiveStyle from './Archive.module.scss';
 import ReactMarkdown from 'react-markdown';
-import { GetArchive } from '../components';
+import { GetArchive } from '../utils/archives/index';
 function Archive(props) {
   let params = useParams();
   const [content, setContent] = React.useState();

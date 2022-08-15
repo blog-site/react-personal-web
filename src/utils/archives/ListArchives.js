@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 function ListArchives() {
-  const data = require('../asset/archives/index.json');
+  const data = require('../../asset/archives/index.json');
 
   let archives = data.map(
     (archive) => (
