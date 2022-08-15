@@ -1,8 +1,8 @@
 // import logo from './logo.svg';
 import AppStyle from './App.module.scss';
 import { Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/index";
-import * as pages from "./pages/index";
+import { Navbar } from "./components";
+import * as pages from "./pages";
 
 function App() {
   return (
