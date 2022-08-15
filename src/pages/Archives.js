@@ -4,7 +4,7 @@ import { ListArchives } from '../utils/archives';
 function Archives() {
   return (
     <div className={ArchivesStyle.Archives}>
-      <h2>Archives</h2>
+      <h1>Archives</h1>
       <div className={ArchivesStyle.Archive}>
         <ListArchives />
       </div>

@@ -2,7 +2,7 @@ import AboutStyle from './About.module.scss';
 function About() {
   return (
     <div className={AboutStyle.About}>
-      <h2>About</h2>
+      <h1>About</h1>
       <div>
         Content
       </div>

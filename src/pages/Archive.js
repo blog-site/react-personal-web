@@ -16,8 +16,8 @@ function Archive(props) {
 
   return (
     <div className={ArchiveStyle.Archive}>
-      <h2>{archive.title}</h2>
-      <ReactMarkdown children={content || '# Loading...'} />
+      <h1>{archive.title}</h1>
+      <ReactMarkdown className={ArchiveStyle.Content} children={content || '# Loading...'} />
     </div>
   );
 }
