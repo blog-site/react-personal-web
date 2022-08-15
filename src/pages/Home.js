@@ -1,8 +1,18 @@
 import HomeStyle from './Home.module.scss';
+import avatar from '../avatar.svg';
 function Home() {
   return (
     <div className={HomeStyle.Home}>
-      <h2>Home</h2>
+      <div className={HomeStyle.container}>
+        <img src={avatar} className={HomeStyle.avatar} alt="avatar" />
+        <p>
+          Hi,
+          <br />
+          I'm [name],
+          <br />
+          A [job name] in [company]
+        </p>
+      </div>
     </div>
   );
 }

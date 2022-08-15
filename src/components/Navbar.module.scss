@@ -1,3 +1,37 @@
-.Navbar {
-  color: yellow;
+.nav {
+  position: fixed;
+  z-index: 100;
+}
+.ul {
+  text-align: left;
+  font-size: large;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.li {
+  margin: 10pt;
+}
+.li a {
+  text-decoration: none;
+}
+.li:hover {
+  color: white;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .li:hover {
+    animation: App-logo-spin 0.1s linear;
+    transform: scale(1.2) translate(10%, 0%);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2) translate(10%, 0%);
+  }
 }

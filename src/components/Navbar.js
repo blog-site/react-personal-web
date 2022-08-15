@@ -1,26 +1,22 @@
 import { Link, Outlet } from "react-router-dom";
-// import NavbarStyle from './Navbar.module.scss';
+import NavbarStyle from './Navbar.module.scss';
 
 function Navbar() {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
+      <nav className={NavbarStyle.nav}>
+        <ul className={NavbarStyle.ul}>
+          <li className={NavbarStyle.li}>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
+          <li className={NavbarStyle.li}>
             <Link to="/archives">Archives</Link>
           </li>
-          <li>
-            <Link to="/nothing-here">Nothing Here</Link>
+          <li className={NavbarStyle.li}>
+            <Link to="/about">About</Link>
           </li>
         </ul>
       </nav>
-      <hr />
       <Outlet />
     </div>
   );
