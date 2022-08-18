@@ -3,9 +3,9 @@ function GetArchive(slug) {
   var result = data.find(data => data['slug'] === slug);
   if(typeof(result) === 'undefined'){
     result = {
-      "title": "Not Found",
-      "contentFile": "notfound.md",
-      "slug": "not-found"
+      'title': 'Not Found',
+      'contentFile': 'notfound.md',
+      'slug': 'not-found'
     };
   }
   return result;

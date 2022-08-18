@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 function ListArchives() {
   const data = require('../../asset/archives/index.json');
 
@@ -8,7 +8,7 @@ function ListArchives() {
         <h2>{archive.title}</h2>
       </Link>
     )
-  )
+  );
 
   return (
     archives

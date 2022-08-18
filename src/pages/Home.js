@@ -8,7 +8,7 @@ function Home() {
         <p>
           Hi,
           <br />
-          I'm [name],
+          I am [name],
           <br />
           A [job name] in [company]
         </p>

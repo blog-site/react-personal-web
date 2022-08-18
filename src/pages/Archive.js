@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import ArchiveStyle from './Archive.module.scss';
 import ReactMarkdown from 'react-markdown';
 import { GetArchive } from '../utils/archives';
-function Archive(props) {
+function Archive() {
   let params = useParams();
   const [content, setContent] = React.useState();
   var archive = GetArchive(params.slug);
@@ -17,7 +17,11 @@ function Archive(props) {
   return (
     <div className={ArchiveStyle.Archive}>
       <h1>{archive.title}</h1>
-      <ReactMarkdown className={ArchiveStyle.Content} children={content || '# Loading...'} />
+      <ReactMarkdown
+        className={ArchiveStyle.Content}
+      >
+        {content || '# Loading...'}
+      </ReactMarkdown>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import AppStyle from './App.module.scss';
-import { Routes, Route } from "react-router-dom";
-import { Navbar } from "./components";
-import * as pages from "./pages";
+import { Routes, Route } from 'react-router-dom';
+import { Navbar } from './components';
+import * as pages from './pages';
 
 function App() {
   return (
