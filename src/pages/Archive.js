@@ -7,7 +7,7 @@ function Archive() {
   let params = useParams();
   const [content, setContent] = React.useState();
   var archive = GetArchive(params.slug);
-  const file = require(`../asset/archives/content/${archive.contentFile}`);
+  const file = require(`../asset/archives/contents/${archive.contentDir}/content.md`);
   fetch(file)
     .then((response) => response.text())
     .then((text) => {
