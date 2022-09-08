@@ -12,7 +12,7 @@
 /build
 
 # public
-/public
+# /public
 
 # misc
 .DS_Store
@@ -26,6 +26,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # asset
-/src/asset/archives
+# /src/asset/archives
 
 /.vscode

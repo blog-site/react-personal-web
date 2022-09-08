@@ -1,16 +1,13 @@
 import AdminStyle from './Admin.module.scss';
-import React from 'react';
-import MDEditor from '@uiw/react-md-editor';
+import { Link } from 'react-router-dom';
 
 function Admin() {
-  const [value, setValue] = React.useState('**Hello world!!!**');
   return (
     <div className={AdminStyle.Admin}>
-      <MDEditor
-        value={value}
-        onChange={setValue}
-      />
-      <MDEditor.Markdown source={value} style={{ whiteSpace: 'pre-wrap' }} />
+      <h1>Admin</h1>
+      <Link to={'/admin/write'} key="write">
+        <h2>Create an archive</h2>
+      </Link>
     </div>
   );
 }
