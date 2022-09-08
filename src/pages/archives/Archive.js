@@ -2,12 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import ArchiveStyle from './Archive.module.scss';
 import ReactMarkdown from 'react-markdown';
-import { GetArchive } from '../utils/archives';
+import { GetArchive } from '../../utils/archives';
 function Archive() {
   let params = useParams();
   const [content, setContent] = React.useState();
   var archive = GetArchive(params.slug);
-  const file = require(`../asset/archives/contents/${archive.contentDir}/content.md`);
+  const file = require(`../../asset/archives/contents/${archive.contentDir}/content.md`);
   fetch(file)
     .then((response) => response.text())
     .then((text) => {
