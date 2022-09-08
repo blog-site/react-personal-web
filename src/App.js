@@ -9,9 +9,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<pages.Home />} />
+          <Route path="about" element={<pages.About />} />
+          <Route path="admin" element={<pages.Admin />} />
           <Route path="archives" element={<pages.Archives />} />
           <Route path="archive/:slug" element={<pages.Archive />} />
-          <Route path="about" element={<pages.About />} />
           <Route path="*" element={<pages.NoMatch />} />
         </Route>
       </Routes>
