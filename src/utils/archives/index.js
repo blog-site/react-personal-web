@@ -1,3 +1,3 @@
-import ListArchives from './ListArchives';
+import GetArchives from './GetArchives';
 import GetArchive from './GetArchive';
-export { ListArchives, GetArchive };
+export { GetArchives, GetArchive };

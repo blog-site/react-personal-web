@@ -1,17 +1,18 @@
 import UpdateArchiveStyle from './UpdateArchive.module.scss';
 import React from 'react';
-import MDEditor from '@uiw/react-md-editor';
+import { useParams } from 'react-router-dom';
+import { ArchiveEditorForm } from '../../components';
 
 function UpdateArchive() {
-  const [value, setValue] = React.useState('**Hello world!!!**');
+  let params = useParams();
+  const slug = params.slug;
+  const [value, setValue] = React.useState(`**Hello world!!!${slug}**`);
   return (
     <div className={UpdateArchiveStyle.UpdateArchive}>
-      <MDEditor
+      <ArchiveEditorForm
         value={value}
-        onChange={setValue}
-        style={{ whiteSpace: 'pre-wrap' }}
+        setValue={setValue}
       />
-      {/* <MDEditor.Markdown source={value} style={{ whiteSpace: 'pre-wrap' }} /> */}
     </div>
   );
 }

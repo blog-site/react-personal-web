@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
-function ListArchives() {
-  const data = require('../../asset/archives/index.json');
+import { GetArchives } from '../../utils/archives';
 
-  let archives = data.map(
+function ShowArchives() {
+  let archives = GetArchives();
+
+  let Archives = archives.map(
     (archive) => (
       <Link to={`/archive/${archive.slug}`} key={archive.slug}>
         <h2>{archive.title}</h2>
@@ -11,8 +13,8 @@ function ListArchives() {
   );
 
   return (
-    archives
+    Archives
   );
 }
 
-export default ListArchives;
+export default ShowArchives;
