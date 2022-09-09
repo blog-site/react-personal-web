@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-// import { GetArchives } from '../../utils/archives';
 
 import { getArchives } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,9 +18,8 @@ function ShowArchivesEdit() {
       dispatch(getArchives());
     }
   }, [archive_list_state, dispatch]);
-  // let archive_list = GetArchives();
 
-  let Archives = (
+  return (
     archive_list === null ?
       [] :
       archive_list.map(
@@ -36,10 +34,6 @@ function ShowArchivesEdit() {
           </div>
         )
       )
-  );
-
-  return (
-    Archives
   );
 }
 
