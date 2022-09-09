@@ -1,11 +1,11 @@
-import WriteStyle from './Write.module.scss';
+import UpdateArchiveStyle from './UpdateArchive.module.scss';
 import React from 'react';
 import MDEditor from '@uiw/react-md-editor';
 
-function Write() {
+function UpdateArchive() {
   const [value, setValue] = React.useState('**Hello world!!!**');
   return (
-    <div className={WriteStyle.Write}>
+    <div className={UpdateArchiveStyle.UpdateArchive}>
       <MDEditor
         value={value}
         onChange={setValue}
@@ -16,4 +16,4 @@ function Write() {
   );
 }
 
-export default Write;
+export default UpdateArchive;
