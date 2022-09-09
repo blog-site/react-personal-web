@@ -2,7 +2,6 @@ function GetArchive(slug) {
   const data = require('../../asset/archives/index.json');
   var archive = data.find(data => data['slug'] === slug);
   if(typeof(archive) === 'undefined'){
-    console.log('no archive');
     archive = {
       'title': 'Not Found',
       'contentDir': 'notFound',

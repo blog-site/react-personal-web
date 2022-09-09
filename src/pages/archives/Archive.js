@@ -5,7 +5,6 @@ import { ShowArchive } from '../../components';
 
 function Archive() {
   let params = useParams();
-  console.log('render');
 
   return (
     <div className={ArchiveStyle.Archive}>
