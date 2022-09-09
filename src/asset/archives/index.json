@@ -2,11 +2,13 @@
   {
     "title": "Title1",
     "contentDir": "content1",
-    "slug": "slug1"
+    "slug": "slug1",
+    "content": ""
   },
   {
     "title": "Title2",
     "contentDir": "content2",
-    "slug": "slug2"
+    "slug": "slug2",
+    "content": ""
   }
 ]
