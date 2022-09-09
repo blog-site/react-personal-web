@@ -65,16 +65,16 @@ export const onGetArchiveFail = (error) => {
   };
 };
 
-export const postArchive = () => {
+export const postArchive = (payload) => {
   return {
     type: archiveActionType.POST_ARCHIVE,
+    payload,
   };
 };
 
-export const onPostArchive = (payload) => {
+export const onPostArchive = () => {
   return {
     type: archiveActionType.ON_POST_ARCHIVE,
-    payload,
   };
 };
 
@@ -86,16 +86,16 @@ export const onPostArchiveFail = (error) => {
   };
 };
 
-export const patchArchive = () => {
+export const patchArchive = (payload) => {
   return {
     type: archiveActionType.PATCH_ARCHIVE,
+    payload,
   };
 };
 
-export const onPatchArchive = (payload) => {
+export const onPatchArchive = () => {
   return {
     type: archiveActionType.ON_PATCH_ARCHIVE,
-    payload,
   };
 };
 
@@ -107,16 +107,16 @@ export const onPatchArchiveFail = (error) => {
   };
 };
 
-export const deleteArchive = () => {
+export const deleteArchive = (payload) => {
   return {
     type: archiveActionType.DELETE_ARCHIVE,
+    payload,
   };
 };
 
-export const onDeleteArchive = (payload) => {
+export const onDeleteArchive = () => {
   return {
     type: archiveActionType.ON_DELETE_ARCHIVE,
-    payload,
   };
 };
 
