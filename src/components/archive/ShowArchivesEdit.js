@@ -21,17 +21,21 @@ function ShowArchivesEdit() {
   }, [archive_list_state, dispatch]);
   // let archive_list = GetArchives();
 
-  let Archives = archive_list.map(
-    (archive) => (
-      <div key={archive.slug}>
-        <Link to={`/archive/${archive.slug}`}>
-          <h2>{archive.title}</h2>
-        </Link>
-        <Link to={`/admin/update-archive/${archive.slug}`}>
-          Edit
-        </Link>
-      </div>
-    )
+  let Archives = (
+    archive_list === null ?
+      [] :
+      archive_list.map(
+        (archive) => (
+          <div key={archive.slug}>
+            <Link to={`/archive/${archive.slug}`}>
+              <h2>{archive.title}</h2>
+            </Link>
+            <Link to={`/admin/update-archive/${archive.slug}`}>
+              Edit
+            </Link>
+          </div>
+        )
+      )
   );
 
   return (
