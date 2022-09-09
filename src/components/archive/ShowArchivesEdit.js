@@ -1,10 +1,27 @@
 import { Link } from 'react-router-dom';
-import { GetArchives } from '../../utils/archives';
+// import { GetArchives } from '../../utils/archives';
+
+import { getArchives } from '../../actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function ShowArchivesEdit() {
-  let archives = GetArchives();
+  const archive_list = useSelector(
+    (state) => state.archive.archive_list
+  );
+  const archive_list_state = useSelector(
+    (state) => state.archive.archive_list_state
+  );
+  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (archive_list_state === 'init') {
+      dispatch(getArchives());
+    }
+  }, [archive_list_state, dispatch]);
+  // let archive_list = GetArchives();
 
-  let Archives = archives.map(
+  let Archives = archive_list.map(
     (archive) => (
       <div key={archive.slug}>
         <Link to={`/archive/${archive.slug}`}>
