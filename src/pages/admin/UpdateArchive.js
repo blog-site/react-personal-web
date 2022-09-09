@@ -1,7 +1,7 @@
 import UpdateArchiveStyle from './UpdateArchive.module.scss';
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { ArchiveEditorForm } from '../../components';
+import { ArchiveEditor } from '../../components';
 
 function UpdateArchive() {
   let params = useParams();
@@ -9,7 +9,7 @@ function UpdateArchive() {
   const [value, setValue] = React.useState(`**Hello world!!!${slug}**`);
   return (
     <div className={UpdateArchiveStyle.UpdateArchive}>
-      <ArchiveEditorForm
+      <ArchiveEditor
         value={value}
         setValue={setValue}
       />
