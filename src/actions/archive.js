@@ -44,9 +44,10 @@ export const onGetArchivesFail = (error) => {
   };
 };
 
-export const getArchive = () => {
+export const getArchive = (payload) => {
   return {
     type: archiveActionType.GET_ARCHIVE,
+    payload,
   };
 };
 
