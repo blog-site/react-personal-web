@@ -1,15 +1,16 @@
 function GetArchive(slug) {
   const data = require('../../asset/archives/index.json');
-  var result = data.find(data => data['slug'] === slug);
-  if(typeof(result) === 'undefined'){
-    console.log('no result');
-    result = {
+  var archive = data.find(data => data['slug'] === slug);
+  if(typeof(archive) === 'undefined'){
+    console.log('no archive');
+    archive = {
       'title': 'Not Found',
       'contentDir': 'notFound',
-      'slug': 'not-found'
+      'slug': 'not-found',
+      'content': 'not-found'
     };
   }
-  return result;
+  return archive;
 }
 
 export default GetArchive;
