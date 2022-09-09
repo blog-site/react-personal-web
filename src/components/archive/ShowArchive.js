@@ -4,8 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { GetArchive } from '../../utils/archives';
 function ShowArchive(props) {
   let _props = props;
-  let content = _props.content;
-  let setContent = _props.setContent;
+  const [content, setContent] = React.useState();
   let slug = _props.slug;
   var archive = GetArchive(slug);
   const file = require(`../../asset/archives/contents/${archive.contentDir}/content.md`);
