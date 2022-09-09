@@ -22,6 +22,7 @@ const reducer = (state = initState, action) => {
     return {
       ...state,
       archive_list_state: 'archives_fetched',
+      archive_list: payload,
     };
   case archiveActionType.ON_GET_ARCHIVES_FAIL:
     return {
@@ -88,6 +89,8 @@ const reducer = (state = initState, action) => {
       ...state,
       archive_list_state: 'archives_remove_failed',
     };
+  default:
+    return state;
   }
 };
 
