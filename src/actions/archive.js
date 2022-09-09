@@ -17,7 +17,7 @@ export const archiveActionType = {
   ON_DELETE_ARCHIVE_FAIL : 'On Delete Archive Failed',
 };
 
-export const TO_INITED_STATE = () => {
+export const toArchiveInitedState = () => {
   return {
     type: archiveActionType.TO_INITED_STATE,
   };
