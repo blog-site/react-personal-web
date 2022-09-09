@@ -1,11 +1,11 @@
-import MDEditor from '@uiw/react-md-editor';
+import ArchiveEditorForm from './ArchiveEditorForm';
+
 function ArchiveEditor(props) {
   let _props = props;
   return (
-    <MDEditor
+    <ArchiveEditorForm
       value={_props.value}
       onChange={_props.setValue}
-      style={{ whiteSpace: 'pre-wrap' }}
     />
   );
 }
