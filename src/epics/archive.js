@@ -17,13 +17,14 @@ import {
 } from '../actions';
 
 const apiUrl = '/api/';
-const archiveUrl = `${apiUrl}archive`;
+const archiveUrl = `${apiUrl}archive/`;
+const archiveViewUrl = `${archiveUrl}view`;
 
 const ArchivesEpic = (action$) =>
   action$.pipe(
     ofType(archiveActionType.GET_ARCHIVES),
     mergeMap((action) => {
-      return ajax.getJSON(archiveUrl).pipe(
+      return ajax.getJSON(archiveViewUrl).pipe(
         map((res) => onGetArchives(res)),
         catchError((error) => of(onGetArchivesFail(error)))
       );
@@ -34,7 +35,7 @@ const ArchiveEpic = (action$) =>
   action$.pipe(
     ofType(archiveActionType.GET_ARCHIVE),
     mergeMap((action) => {
-      return ajax.getJSON(`${archiveUrl}`).pipe(
+      return ajax.getJSON(`${archiveViewUrl}`).pipe(
         map((res) => onGetArchive(res)),
         catchError((error) => of(onGetArchiveFail(error)))
       );
@@ -46,7 +47,7 @@ const PostArchiveEpic = (action$) =>
     ofType(archiveActionType.POST_ARCHIVE),
     mergeMap((action) => {
       return ajax
-        .patch(`${archiveUrl}/`, action.payload)
+        .patch(`${archiveViewUrl}/`, action.payload)
         .pipe(
           map((res) => onPostArchive()),
           catchError((error) => of(onPostArchiveFail(error)))
@@ -59,7 +60,7 @@ const PatchArchiveEpic = (action$) =>
     ofType(archiveActionType.PATCH_ARCHIVE),
     mergeMap((action) => {
       return ajax
-        .patch(`${archiveUrl}/${action.payload.slug}/`, action.payload)
+        .patch(`${archiveViewUrl}/${action.payload.slug}/`, action.payload)
         .pipe(
           map((res) => onPatchArchive()),
           catchError((error) => of(onPatchArchiveFail(error)))
@@ -72,7 +73,7 @@ const DeleteArchiveEpic = (action$) =>
     ofType(archiveActionType.DELETE_ARCHIVE),
     mergeMap((action) => {
       return ajax
-        .patch(`${archiveUrl}/${action.payload.slug}/`, action.payload)
+        .patch(`${archiveViewUrl}/${action.payload.slug}/`, action.payload)
         .pipe(
           map((res) => onDeleteArchive()),
           catchError((error) => of(onDeleteArchiveFail(error)))
