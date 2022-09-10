@@ -1,17 +1,39 @@
 import React from 'react';
 import ArchiveStyle from './Archive.module.scss';
 import ReactMarkdown from 'react-markdown';
-import { GetArchive } from '../../utils/archives';
+
+import { getArchive } from '../../actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
 function ShowArchive(props) {
+
   let _props = props;
   let slug = _props.slug;
-  var archive = GetArchive(slug);
-  // const file = require(`../../asset/archives/contents/${archive.contentDir}/content.md`);
-  // fetch(file)
-  //   .then((response) => response.text())
-  //   .then((text) => {
-  //     setContent(text);
-  //   });
+  
+  const archive = useSelector(
+    (state) => state.archive.archive
+  );
+  const archive_state = useSelector(
+    (state) => state.archive.archive_state
+  );
+  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (archive_state === 'init') {
+      console.log(1);
+      dispatch(getArchive({ slug: slug }));
+    }
+    else if ((slug in archive) == false) {
+      console.log(2);
+      dispatch(getArchive({ slug: slug }));
+    }
+    else if (archive.slug !== slug) {
+      console.log(3);
+      dispatch(getArchive({ slug: slug }));
+    }
+  }, [archive_state, dispatch]);
+  // console.log(archive);
 
   return (
     <div className={ArchiveStyle.Archive}>
@@ -19,7 +41,7 @@ function ShowArchive(props) {
       <ReactMarkdown
         className={ArchiveStyle.Content}
       >
-        {archive.content || '# Loading...'}
+        {archive.body || '# Loading...'}
       </ReactMarkdown>
     </div>
   );
