@@ -1,5 +1,5 @@
 import React from 'react';
-import ArchiveStyle from './Archive.module.scss';
+import ShowArchiveStyle from './ShowArchive.module.scss';
 import ReactMarkdown from 'react-markdown';
 
 import { getArchive } from '../../actions';
@@ -36,10 +36,10 @@ function ShowArchive(props) {
   // console.log(archive);
 
   return (
-    <div className={ArchiveStyle.Archive}>
+    <div className={ShowArchiveStyle.Archive}>
       <h1>{archive.title}</h1>
       <ReactMarkdown
-        className={ArchiveStyle.Content}
+        className={ShowArchiveStyle.Content}
       >
         {archive.body || '# Loading...'}
       </ReactMarkdown>

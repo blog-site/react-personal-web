@@ -1,3 +1,5 @@
+import ShowArchivesStyle from './ShowArchives.module.scss';
+
 import { Link } from 'react-router-dom';
 
 import { getArchives } from '../../actions';
