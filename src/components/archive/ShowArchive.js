@@ -1,13 +1,12 @@
 import React from 'react';
+import { useEffect } from 'react';
 import ShowArchiveStyle from './ShowArchive.module.scss';
 import ReactMarkdown from 'react-markdown';
 
-import { getArchive } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { getArchive } from '../../actions';
 
 function ShowArchive(props) {
-
   let _props = props;
   let slug = _props.slug;
   
@@ -21,19 +20,15 @@ function ShowArchive(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (archive_state === 'init') {
-      console.log(1);
       dispatch(getArchive({ slug: slug }));
     }
-    else if ((slug in archive) == false) {
-      console.log(2);
+    else if (('slug' in archive) === false) {
       dispatch(getArchive({ slug: slug }));
     }
     else if (archive.slug !== slug) {
-      console.log(3);
       dispatch(getArchive({ slug: slug }));
     }
   }, [archive_state, dispatch]);
-  // console.log(archive);
 
   return (
     <div className={ShowArchiveStyle.Archive}>
