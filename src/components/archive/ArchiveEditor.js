@@ -9,7 +9,28 @@ function ArchiveEditor(props) {
   let _props = props;
   const slug = _props.slug;
 
-  const [value, setValue] = React.useState('# Loading...');
+  const [value, setValue] = React.useState({
+    slug: 'undefined',
+    title: 'undefined',
+    subtitle: 'undefined',
+    body: 'undefined',
+    date_created: 'undefined',
+    date_modified: 'undefined',
+    date_published: 'undefined',
+    published: true
+  });
+  const setBody = ((newBody) => {
+    setValue({
+      slug: value.slug,
+      title: value.title,
+      subtitle: value.subtitle,
+      body: newBody,
+      date_created: value.date_created,
+      date_modified: value.date_modified,
+      date_published: value.date_published,
+      published: value.published
+    });
+  });
   
   const archive = useSelector(
     (state) => state.archive.archive
@@ -30,16 +51,53 @@ function ArchiveEditor(props) {
       dispatch(getArchive({ slug: slug }));
     }
     else {
-      setValue(archive.body);
+      setValue(archive);
     }
   }, [archive_state, dispatch]);
 
   return (
-    <MDEditor
-      value={value}
-      onChange={setValue}
-      style={{ whiteSpace: 'pre-wrap' }}
-    />
+    <div>
+      <form
+        value={value}
+        id="archiveEditorForm"
+        onChange={(newValue) => setValue({
+          ...value, 
+          [newValue.target.name] : newValue.target.value
+        })}
+        onSubmit={() =>
+          dispatch(patchArchive(value))
+        }
+      >
+        <p>
+          <label>slug: </label>
+          <input name="slug" type="text" placeholder={value.slug} />
+        </p>
+        <p>
+          <label>title: </label>
+          <textarea name="title" type="text" placeholder={value.title} />
+        </p>
+        <p>
+          <label>subtitle: </label>
+          <textarea name="subtitle" type="text" placeholder={value.subtitle} />
+        </p>
+        <p>
+          <label>published: </label>
+          <select name="published">
+            <option value={1}>true</option>
+            <option value={0}>false</option>
+          </select>
+        </p>
+        <button type="submit">
+          Submit
+        </button>
+      </form>
+      <MDEditor
+        value={value.body}
+        onChange={setBody}
+        style={{ whiteSpace: 'pre-wrap' }}
+        form="archiveEditorForm"
+      />
+    </div>
   );
 }
 
