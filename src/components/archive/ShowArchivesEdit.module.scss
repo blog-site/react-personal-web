@@ -1,0 +1,20 @@
+.Archives {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Archive {
+  color: orange;
+  background-color: darkblue;
+  border-radius: 10px;
+  margin: 1%;
+  align-items: center;
+  padding: 0% 2%;
+}
+
+.ArchiveLine {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
