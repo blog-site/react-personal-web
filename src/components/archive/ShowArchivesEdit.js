@@ -57,7 +57,7 @@ function Archive(props) {
         <Link to={`/archive/${archive.slug}`}>
           <h2>{archive.title}</h2>
         </Link>
-        <Link to={`/admin/update-archive/${archive.slug}`}>
+        <Link to={`/admin/${archive.slug}/update`}>
           <p>Edit</p>
         </Link>
       </div>

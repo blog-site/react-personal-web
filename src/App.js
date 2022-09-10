@@ -12,7 +12,7 @@ function App() {
           <Route index element={<pages.Home />} />
           <Route path="about" element={<pages.About />} />
           <Route path="admin" element={<pages.Admin />} />
-          <Route path="admin/update-archive/:slug" element={<pages.UpdateArchive />} />
+          <Route path="admin/:slug/update" element={<pages.UpdateArchive />} />
           <Route path="archives" element={<pages.Archives />} />
           <Route path="archive/:slug" element={<pages.Archive />} />
           <Route path="*" element={<pages.NoMatch />} />
