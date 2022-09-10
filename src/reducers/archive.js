@@ -2,7 +2,7 @@ import { archiveActionType } from '../actions';
 
 const initState = {
   archive_list: [],
-  archive: [],
+  archive: {},
   archive_list_state: 'init',
   archive_state: 'init',
 };
