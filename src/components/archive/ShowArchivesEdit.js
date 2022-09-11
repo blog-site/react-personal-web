@@ -62,7 +62,7 @@ function Archive(props) {
         </Link>
       </div>
       <div className={ShowArchivesEditStyle.ArchiveLine}>
-        <h4>{archive.subtitle}</h4>
+        <p></p>
         <p>published on: {date_published}</p>
       </div>
     </div>

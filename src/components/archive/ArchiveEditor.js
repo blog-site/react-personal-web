@@ -12,7 +12,6 @@ function ArchiveEditor(props) {
   const [value, setValue] = React.useState({
     slug: 'undefined',
     title: 'undefined',
-    subtitle: 'undefined',
     body: 'undefined',
     date_created: 'undefined',
     date_modified: 'undefined',
@@ -23,7 +22,6 @@ function ArchiveEditor(props) {
     setValue({
       slug: value.slug,
       title: value.title,
-      subtitle: value.subtitle,
       body: newBody,
       date_created: value.date_created,
       date_modified: value.date_modified,
@@ -75,10 +73,6 @@ function ArchiveEditor(props) {
         <p>
           <label>title: </label>
           <textarea name="title" type="text" placeholder={value.title} />
-        </p>
-        <p>
-          <label>subtitle: </label>
-          <textarea name="subtitle" type="text" placeholder={value.subtitle} />
         </p>
         <p>
           <label>published: </label>
