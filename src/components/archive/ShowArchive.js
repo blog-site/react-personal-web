@@ -42,13 +42,24 @@ function ShowArchive(props) {
 function Archive(props){
   let _props = props;
   var body = _props.body;
-  console.log(`body: ${body}`);
+  
+  if (!body) {
+    return (
+      <ReactMarkdown
+        className={ShowArchiveStyle.Content}
+      >
+        # Loading
+      </ReactMarkdown>
+    );
+  }
+
+  
 
   return (
     <ReactMarkdown
-      className={ShowArchiveStyle.Content}
+      className={ShowArchiveStyle.Body}
     >
-      {body || '# Loading...'}
+      {body}
     </ReactMarkdown>
   );
 }
