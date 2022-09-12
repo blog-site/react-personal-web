@@ -33,12 +33,23 @@ function ShowArchive(props) {
   return (
     <div className={ShowArchiveStyle.Archive}>
       <h1>{archive.title}</h1>
-      <ReactMarkdown
-        className={ShowArchiveStyle.Content}
-      >
-        {archive.body || '# Loading...'}
-      </ReactMarkdown>
+      
+      <Archive body={archive.body} />
     </div>
+  );
+}
+
+function Archive(props){
+  let _props = props;
+  var body = _props.body;
+  console.log(`body: ${body}`);
+
+  return (
+    <ReactMarkdown
+      className={ShowArchiveStyle.Content}
+    >
+      {body || '# Loading...'}
+    </ReactMarkdown>
   );
 }
 
