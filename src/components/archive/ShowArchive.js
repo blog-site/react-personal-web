@@ -52,18 +52,11 @@ function Archive(props){
       </Markdown>
     );
   }
-  const content = `
-  **Below me will be displayed as a block:**
-  $$
-  Block Math
-  $$
-  **Next to me will be displayed as inline ->** $Inline Math$
-  `;
   return (
     <Markdown
       className={ShowArchiveStyle.Body}
     >
-      {content}
+      {body}
     </Markdown>
   );
 }
