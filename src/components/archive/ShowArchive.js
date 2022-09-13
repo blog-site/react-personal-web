@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import ShowArchiveStyle from './ShowArchive.module.scss';
-import ReactMarkdown from 'react-markdown';
+import Markdown from '../shared/Markdown.component';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getArchive } from '../../actions';
@@ -45,22 +45,26 @@ function Archive(props){
   
   if (!body) {
     return (
-      <ReactMarkdown
+      <Markdown
         className={ShowArchiveStyle.Content}
       >
         # Loading
-      </ReactMarkdown>
+      </Markdown>
     );
   }
-
-  
-
+  const content = `
+  **Below me will be displayed as a block:**
+  $$
+  Block Math
+  $$
+  **Next to me will be displayed as inline ->** $Inline Math$
+  `;
   return (
-    <ReactMarkdown
+    <Markdown
       className={ShowArchiveStyle.Body}
     >
-      {body}
-    </ReactMarkdown>
+      {content}
+    </Markdown>
   );
 }
 
