@@ -1,21 +1,16 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import RemarkMathPlugin from 'remark-math';
-import { BlockMath, InlineMath } from 'react-katex';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import remarkGfm from 'remark-gfm';
 import 'katex/dist/katex.min.css';
 
-const _mapProps = (props) => ({
+const mapProps = (props) => ({
   ...props,
-  remarkPlugins: [
-    RemarkMathPlugin
-  ],
-  components: {
-    ...props.components,
-    math: ({ value }) => <BlockMath>{value}</BlockMath>,
-    inlineMath: ({ value }) => <InlineMath>{value}</InlineMath>
-  }
+  remarkPlugins: [remarkMath, remarkGfm],
+  rehypePlugins: [rehypeKatex]
 });
 
-const Markdown = (props) => <ReactMarkdown {..._mapProps(props)} />;
+const Markdown = (props) => <ReactMarkdown {...mapProps(props)} />;
 
 export default Markdown;
