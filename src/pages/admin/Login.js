@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
 import CSRFToken from '../../components/auth/CSRFToken';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ isAuthenticated }) => {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
 
   const { username, password } = formData;
+  
+  const isAuthenticated_state = useSelector(
+    (state) => state.auth.isAuthenticated_state
+  );
 
-  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = e => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const onSubmit = e => {
     e.preventDefault();
-
-    login(username, password);
+    dispatch(login(formData));
   };
+  
+  const dispatch = useDispatch();
+  useEffect(() => {}, [isAuthenticated_state, dispatch]);
 
   if (isAuthenticated)
     return <Navigate to='/dashboard' />;
@@ -27,7 +36,15 @@ const Login = ({ login, isAuthenticated }) => {
     <div className='container mt-5'>
       <h1>Sign In</h1>
       <p>Sign into your Session Auth account</p>
-      <form onSubmit={e => onSubmit(e)}>
+      <form
+        // value={formData}
+        id="archiveEditorForm"
+        onChange={(newValue) => setFormData({
+          ...formData, 
+          [newValue.target.name] : newValue.target.value
+        })}
+        onSubmit={(e) => onSubmit(e)}
+      >
         <CSRFToken />
         <div className='form-group'>
           <label className='form-label'>Username: </label>
