@@ -23,15 +23,17 @@ export const toAuthInitedState = () => {
   };
 };
 
-export const checkAuthenticate = () => {
+export const checkAuthenticate = (payload) => {
   return {
     type: authActionType.AUTHENTICATE,
+    payload,
   };
 };
 
-export const onCheckAuthenticate = () => {
+export const onCheckAuthenticate = (payload) => {
   return {
     type: authActionType.ON_AUTHENTICATE,
+    payload,
   };
 };
 
@@ -43,9 +45,10 @@ export const onCheckAuthenticateFail = (error) => {
   };
 };
 
-export const register = () => {
+export const register = (payload) => {
   return {
     type: authActionType.REGISTER,
+    payload,
   };
 };
 
@@ -63,9 +66,10 @@ export const onRegisterFail = (error) => {
   };
 };
 
-export const login = () => {
+export const login = (payload) => {
   return {
     type: authActionType.LOGIN,
+    payload,
   };
 };
 
@@ -83,9 +87,10 @@ export const onLoginFail = (error) => {
   };
 };
 
-export const logout = () => {
+export const logout = (payload) => {
   return {
     type: authActionType.LOGOUT,
+    payload,
   };
 };
 
@@ -103,9 +108,10 @@ export const onLogoutFail = (error) => {
   };
 };
 
-export const deleteAccount = () => {
+export const deleteAccount = (payload) => {
   return {
     type: authActionType.DELETE_ACCOUNT,
+    payload,
   };
 };
 
