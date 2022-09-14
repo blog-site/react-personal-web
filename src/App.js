@@ -15,10 +15,12 @@ function App() {
           <Route path="about" element={<pages.About />} />
           <Route path="archives" element={<pages.Archives />} />
           <Route path="archive/:slug" element={<pages.Archive />} />
-          <Route exact path='/login' element={<pages.Login />}/>
-          <Route exact path='/admin' element={<PrivateRoute />}>
+          <Route exact path='login' element={<pages.Login />}/>
+          <Route exact path='admin' element={<PrivateRoute />}>
             <Route exact path="admin" component={<pages.Admin />} />
-            {/* <Route exact path="admin/:slug/update" component={<pages.UpdateArchive />} /> */}
+          </Route>
+          <Route exact path='admin/:slug/update' element={<PrivateRoute />}>
+            <Route exact path="admin/:slug/update" component={<pages.UpdateArchive />} />
           </Route>
         </Route>
         <Route path="*" element={<pages.NoMatch />} />
