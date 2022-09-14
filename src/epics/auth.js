@@ -51,8 +51,9 @@ export const LoginEpic = (action$) =>
           'Content-Type': 'application/json',
           'X-CSRFToken': Cookies.get('csrftoken')
         },
-        url: `${coreUrl}login`
-      }, action.payload).pipe(
+        url: `${coreUrl}login/`,
+        body: action.payload
+      }).pipe(
         map((res) => onLogin(res)),
         catchError((error) => of(onLoginFail(error)))
       );
@@ -71,8 +72,9 @@ export const LogoutEpic = (action$) =>
           'Content-Type': 'application/json',
           'X-CSRFToken': Cookies.get('csrftoken')
         },
-        url: `${coreUrl}logout`
-      }, action.payload).pipe(
+        url: `${coreUrl}logout/`,
+        body: action.payload
+      }).pipe(
         map((res) => onLogout(res)),
         catchError((error) => of(onLogoutFail(error)))
       );
@@ -91,8 +93,9 @@ export const RegisterEpic = (action$) =>
           'Content-Type': 'application/json',
           'X-CSRFToken': Cookies.get('csrftoken')
         },
-        url: `${coreUrl}register`
-      }, action.payload).pipe(
+        url: `${coreUrl}register/`,
+        body: action.payload
+      }).pipe(
         map((res) => onRegister(res)),
         catchError((error) => of(onRegisterFail(error)))
       );
@@ -111,8 +114,9 @@ export const DeleteAccountEpic = (action$) =>
           'Content-Type': 'application/json',
           'X-CSRFToken': Cookies.get('csrftoken')
         },
-        url: `${coreUrl}delete-account`
-      }, action.payload).pipe(
+        url: `${coreUrl}delete-account/`,
+        body: action.payload
+      }).pipe(
         map((res) => onDeleteAccount(res)),
         catchError((error) => of(onDeleteAccountFail(error)))
       );
