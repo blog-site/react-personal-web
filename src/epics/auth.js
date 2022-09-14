@@ -42,7 +42,7 @@ export const CheckAuthenticateEpic = (action$) =>
 // action.payload = JSON.stringify({ username, password }
 export const LoginEpic = (action$) =>
   action$.pipe(
-    ofType(authActionType.AUTHENTICATE),
+    ofType(authActionType.LOGIN),
     mergeMap((action) => {
       return ajax({
         method: 'PUT',
@@ -62,7 +62,7 @@ export const LoginEpic = (action$) =>
 // const action.payload = JSON.stringify({ 'withCredentials': true });
 export const LogoutEpic = (action$) =>
   action$.pipe(
-    ofType(authActionType.AUTHENTICATE),
+    ofType(authActionType.LOGOUT),
     mergeMap((action) => {
       return ajax({
         method: 'PUT',
@@ -82,7 +82,7 @@ export const LogoutEpic = (action$) =>
 // const action.payload = JSON.stringify({ username, password, re_password });
 export const RegisterEpic = (action$) =>
   action$.pipe(
-    ofType(authActionType.AUTHENTICATE),
+    ofType(authActionType.REGISTER),
     mergeMap((action) => {
       return ajax({
         method: 'PUT',
@@ -102,7 +102,7 @@ export const RegisterEpic = (action$) =>
 // const action.payload = JSON.stringify({ 'withCredentials': true });
 export const DeleteAccountEpic = (action$) =>
   action$.pipe(
-    ofType(authActionType.AUTHENTICATE),
+    ofType(authActionType.ACCOUNT_DELETE),
     mergeMap((action) => {
       return ajax({
         method: 'PUT',
