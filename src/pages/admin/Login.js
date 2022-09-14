@@ -16,6 +16,9 @@ const Login = ({ isAuthenticated }) => {
   const isAuthenticated_state = useSelector(
     (state) => state.auth.isAuthenticated_state
   );
+  
+  const dispatch = useDispatch();
+  useEffect(() => {}, [isAuthenticated_state, dispatch]);
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,9 +28,6 @@ const Login = ({ isAuthenticated }) => {
     e.preventDefault();
     dispatch(login(formData));
   };
-  
-  const dispatch = useDispatch();
-  useEffect(() => {}, [isAuthenticated_state, dispatch]);
 
   if (isAuthenticated)
     return <Navigate to='/dashboard' />;
