@@ -7,7 +7,7 @@ import { getArchive, postArchive, patchArchive } from '../../actions';
 
 function ArchiveEditor(props) {
   let _props = props;
-  const slug = _props.slug;
+  const _slug = _props.slug;
 
   const [value, setValue] = React.useState({
     slug: 'undefined',
@@ -18,6 +18,17 @@ function ArchiveEditor(props) {
     date_published: 'undefined',
     published: true
   });
+
+  const {
+    slug,
+    title,
+    body,
+    date_created,
+    date_modified,
+    date_published,
+    published,
+  } = value;
+  
   const setBody = ((newBody) => {
     setValue({
       slug: value.slug,
@@ -40,13 +51,13 @@ function ArchiveEditor(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (archive_state === 'init') {
-      dispatch(getArchive({ slug: slug }));
+      dispatch(getArchive({ slug: _slug }));
     }
     else if (('slug' in archive) === false) {
-      dispatch(getArchive({ slug: slug }));
+      dispatch(getArchive({ slug: _slug }));
     }
-    else if (archive.slug !== slug) {
-      dispatch(getArchive({ slug: slug }));
+    else if (archive.slug !== _slug) {
+      dispatch(getArchive({ slug: _slug }));
     }
     else {
       setValue(archive);
@@ -68,15 +79,15 @@ function ArchiveEditor(props) {
       >
         <p>
           <label>slug: </label>
-          <input name="slug" type="text" placeholder={value.slug} />
+          <input name="slug" type="text" value={slug} />
         </p>
         <p>
           <label>title: </label>
-          <textarea name="title" type="text" placeholder={value.title} />
+          <textarea name="title" type="text" value={title} />
         </p>
         <p>
           <label>published: </label>
-          <select name="published">
+          <select name="published" value={published}>
             <option value={1}>true</option>
             <option value={0}>false</option>
           </select>
@@ -86,7 +97,7 @@ function ArchiveEditor(props) {
         </button>
       </form>
       <MDEditor
-        value={value.body}
+        value={body}
         onChange={setBody}
         style={{ whiteSpace: 'pre-wrap' }}
         form="archiveEditorForm"
