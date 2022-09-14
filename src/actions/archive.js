@@ -38,7 +38,7 @@ export const onGetArchives = (payload) => {
 
 export const onGetArchivesFail = (error) => {
   return {
-    type: archiveActionType.ONL_GET_ARCHIVES_FAI,
+    type: archiveActionType.ON_GET_ARCHIVES_FAIL,
     payload: error.xhr.response,
     error: true,
   };
