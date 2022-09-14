@@ -4,8 +4,6 @@ import './index.scss';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
-import { BrowserRouter } from 'react-router-dom';
-
 import { Provider } from 'react-redux';
 import configureStore from './conf/configureStore';
 
@@ -15,9 +13,7 @@ const store = configureStore();
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <App />
     </React.StrictMode>
   </Provider>
 );
