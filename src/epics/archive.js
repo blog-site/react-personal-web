@@ -35,7 +35,6 @@ const ArchiveEpic = (action$) =>
   action$.pipe(
     ofType(archiveActionType.GET_ARCHIVE),
     mergeMap((action) => {
-      console.log(`URL: ${archiveViewUrl}/${action.payload.slug}`);
       return ajax.getJSON(`${archiveViewUrl}/${action.payload.slug}`).pipe(
         map((res) => onGetArchive(res)),
         catchError((error) => of(onGetArchiveFail(error)))
