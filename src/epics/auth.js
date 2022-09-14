@@ -26,7 +26,7 @@ export const CheckAuthenticateEpic = (action$) =>
     ofType(authActionType.AUTHENTICATE),
     mergeMap((action) => {
       return ajax({
-        method: 'PUT',
+        method: 'GET',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ export const LoginEpic = (action$) =>
     ofType(authActionType.LOGIN),
     mergeMap((action) => {
       return ajax({
-        method: 'PUT',
+        method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export const LogoutEpic = (action$) =>
     ofType(authActionType.LOGOUT),
     mergeMap((action) => {
       return ajax({
-        method: 'PUT',
+        method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ export const RegisterEpic = (action$) =>
     ofType(authActionType.REGISTER),
     mergeMap((action) => {
       return ajax({
-        method: 'PUT',
+        method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ export const DeleteAccountEpic = (action$) =>
     ofType(authActionType.ACCOUNT_DELETE),
     mergeMap((action) => {
       return ajax({
-        method: 'PUT',
+        method: 'DELETE',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
