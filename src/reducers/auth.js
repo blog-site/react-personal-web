@@ -1,7 +1,7 @@
 import { authActionType } from '../actions';
 
 const initialState = {
-  isAuthenticated: null,
+  isAuthenticated: false,
   isAuthenticated_state: 'init',
 };
 
