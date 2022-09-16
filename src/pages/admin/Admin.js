@@ -1,5 +1,5 @@
 import AdminStyle from './Admin.module.scss';
-import ShowArchivesEdit from '../../components/archive/ShowArchivesEdit';
+import { ShowArchivesEdit } from '../../components';
 
 function Admin() {
   return (

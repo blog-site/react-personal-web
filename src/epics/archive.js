@@ -4,8 +4,6 @@ import { ajax } from 'rxjs/ajax';
 
 import {
   archiveActionType,
-  onGetArchives,
-  onGetArchivesFail,
   onGetArchive,
   onGetArchiveFail,
   onPostArchive,
@@ -19,17 +17,6 @@ import {
 const apiUrl = '/api/';
 const archiveUrl = `${apiUrl}archive/`;
 const archiveViewUrl = `${archiveUrl}view`;
-
-const ArchivesEpic = (action$) =>
-  action$.pipe(
-    ofType(archiveActionType.GET_ARCHIVES),
-    mergeMap((action) => {
-      return ajax.getJSON(archiveViewUrl).pipe(
-        map((res) => onGetArchives(res)),
-        catchError((error) => of(onGetArchivesFail(error)))
-      );
-    })
-  );
 
 const ArchiveEpic = (action$) =>
   action$.pipe(
@@ -82,7 +69,6 @@ const DeleteArchiveEpic = (action$) =>
   );
 
 export default combineEpics(
-  ArchivesEpic,
   ArchiveEpic,
   PostArchiveEpic,
   PatchArchiveEpic,

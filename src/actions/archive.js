@@ -1,8 +1,5 @@
 export const archiveActionType = {
   TO_INITED_STATE: 'To Inited State',
-  GET_ARCHIVES : 'Get Archives',
-  ON_GET_ARCHIVES : 'On Get Archives',
-  ON_GET_ARCHIVES_FAIL : 'On Get Archives Failed',
   GET_ARCHIVE : 'Get Archive',
   ON_GET_ARCHIVE : 'On Get Archive',
   ON_GET_ARCHIVE_FAIL : 'On Get Archive Failed',
@@ -20,27 +17,6 @@ export const archiveActionType = {
 export const toArchiveInitedState = () => {
   return {
     type: archiveActionType.TO_INITED_STATE,
-  };
-};
-
-export const getArchives = () => {
-  return {
-    type: archiveActionType.GET_ARCHIVES,
-  };
-};
-
-export const onGetArchives = (payload) => {
-  return {
-    type: archiveActionType.ON_GET_ARCHIVES,
-    payload,
-  };
-};
-
-export const onGetArchivesFail = (error) => {
-  return {
-    type: archiveActionType.ON_GET_ARCHIVES_FAIL,
-    payload: error.xhr.response,
-    error: true,
   };
 };
 

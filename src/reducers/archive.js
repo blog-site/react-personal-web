@@ -1,9 +1,7 @@
 import { archiveActionType } from '../actions';
 
 const initState = {
-  archives: [],
   archive: {},
-  archives_state: 'init',
   archive_state: 'init',
 };
 
@@ -13,24 +11,7 @@ const reducer = (state = initState, action) => {
   case archiveActionType.TO_INITED_STATE:
     return {
       ...state,
-      archives_state: 'inited',
       archive_state: 'init',
-    };
-  case archiveActionType.GET_ARCHIVES:
-    return {
-      ...state,
-      archives_state: 'archives_fetching',
-    };
-  case archiveActionType.ON_GET_ARCHIVES:
-    return {
-      ...state,
-      archives_state: 'archives_fetched',
-      archives: payload,
-    };
-  case archiveActionType.ON_GET_ARCHIVES_FAIL:
-    return {
-      ...state,
-      archives_state: 'archives_fetch_failed',
     };
   case archiveActionType.GET_ARCHIVE:
     return {
@@ -48,47 +29,47 @@ const reducer = (state = initState, action) => {
       ...state,
       archive_state: 'archive_fetch_failed',
     };
-  case archiveActionType.POST_ARCHIVES:
+  case archiveActionType.POST_ARCHIVE:
     return {
       ...state,
       archive_state: 'archive_adding',
     };
-  case archiveActionType.ON_POST_ARCHIVES:
+  case archiveActionType.ON_POST_ARCHIVE:
     return {
       ...state,
       archive_state: 'archive_added',
     };
-  case archiveActionType.ON_POST_ARCHIVES_FAIL:
+  case archiveActionType.ON_POST_ARCHIVE_FAIL:
     return {
       ...state,
       archive_state: 'archive_add_failed',
     };
-  case archiveActionType.PATCH_ARCHIVES:
+  case archiveActionType.PATCH_ARCHIVE:
     return {
       ...state,
       archive_state: 'archive_updating',
     };
-  case archiveActionType.ON_PATCH_ARCHIVES:
+  case archiveActionType.ON_PATCH_ARCHIVE:
     return {
       ...state,
       archive_state: 'archive_updated',
     };
-  case archiveActionType.ON_PATCH_ARCHIVES_FAIL:
+  case archiveActionType.ON_PATCH_ARCHIVE_FAIL:
     return {
       ...state,
       archive_state: 'archive_update_failed',
     };
-  case archiveActionType.DELETE_ARCHIVES:
+  case archiveActionType.DELETE_ARCHIVE:
     return {
       ...state,
       archive_state: 'archive_removing',
     };
-  case archiveActionType.ON_DELETE_ARCHIVES:
+  case archiveActionType.ON_DELETE_ARCHIVE:
     return {
       ...state,
       archive_state: 'archive_removed',
     };
-  case archiveActionType.ON_DELETE_ARCHIVES_FAIL:
+  case archiveActionType.ON_DELETE_ARCHIVE_FAIL:
     return {
       ...state,
       archive_state: 'archive_remove_failed',
