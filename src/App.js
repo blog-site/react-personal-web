@@ -21,8 +21,8 @@ function App() {
             <Route exact path='admin' element={<PrivateRoute />}>
               <Route exact path="admin" component={<pages.Admin />} />
             </Route>
-            <Route exact path='admin/:slug/update' element={<PrivateRoute />}>
-              <Route exact path="admin/:slug/update" component={<pages.UpdateArchive />} />
+            <Route exact path='admin/update-archive/:slug' element={<PrivateRoute />}>
+              <Route exact path="admin/update-archive/:slug" component={<pages.UpdateArchive />} />
             </Route>
           </Route>
           <Route path="*" element={<pages.NoMatch />} />
