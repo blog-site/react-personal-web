@@ -6,6 +6,8 @@ import Markdown from '../shared/Markdown.component';
 import { useDispatch, useSelector } from 'react-redux';
 import { getArchive } from '../../actions';
 
+import NoMatch from '../../pages/NoMatch';
+
 function ShowArchive(props) {
   let _props = props;
   let slug = _props.slug;
@@ -19,7 +21,10 @@ function ShowArchive(props) {
   
   const dispatch = useDispatch();
   useEffect(() => {
-    if (archive_state === 'init') {
+    if(archive_state === 'archive_fetch_failed'){
+      console.log('state failed');
+    }
+    else if (archive_state === 'init') {
       dispatch(getArchive({ slug: slug }));
     }
     else if (('slug' in archive) === false) {
@@ -29,6 +34,10 @@ function ShowArchive(props) {
       dispatch(getArchive({ slug: slug }));
     }
   }, [archive_state, dispatch]);
+  
+  if (archive_state === 'archive_fetch_failed') {
+    return <NoMatch />;
+  }
 
   return (
     <div className={ShowArchiveStyle.Archive}>
