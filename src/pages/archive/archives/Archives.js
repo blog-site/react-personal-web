@@ -1,6 +1,6 @@
 import React from 'react';
 import ArchivesStyle from './Archives.module.scss';
-import { ShowArchives } from '../../components';
+import { ShowArchives } from '../../../components';
 function Archives() {
   return (
     <div className={ArchivesStyle.Archives}>

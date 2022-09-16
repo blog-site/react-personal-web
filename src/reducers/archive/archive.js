@@ -1,4 +1,4 @@
-import { archiveActionType } from '../actions';
+import { archiveActionType } from '../../actions';
 
 const initState = {
   archive: {},

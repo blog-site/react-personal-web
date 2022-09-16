@@ -2,9 +2,9 @@ import ShowArchivesStyle from './ShowArchives.module.scss';
 
 import { Link } from 'react-router-dom';
 
-import { getArchives } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { getArchives } from '../../../actions';
 
 function ShowArchivesEdit() {
   const archives = useSelector(

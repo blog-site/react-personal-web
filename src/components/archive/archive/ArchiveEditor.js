@@ -3,7 +3,7 @@ import React from 'react';
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getArchive, postArchive, patchArchive } from '../../actions';
+import { getArchive, postArchive, patchArchive } from '../../../actions';
 
 function ArchiveEditor(props) {
   let _props = props;

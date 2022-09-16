@@ -12,7 +12,7 @@ import {
   onPatchArchiveFail,
   onDeleteArchive,
   onDeleteArchiveFail,
-} from '../actions';
+} from '../../actions';
 
 const apiUrl = '/api/';
 const archiveUrl = `${apiUrl}archive/`;

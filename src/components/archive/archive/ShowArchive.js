@@ -1,12 +1,12 @@
 import React from 'react';
 import { useEffect } from 'react';
 import ShowArchiveStyle from './ShowArchive.module.scss';
-import Markdown from '../shared/Markdown.component';
+import Markdown from '../../shared/Markdown.component';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getArchive } from '../../actions';
+import { getArchive } from '../../../actions';
 
-import NoMatch from '../../pages/NoMatch';
+import NoMatch from '../../../pages/NoMatch';
 
 function ShowArchive(props) {
   let _props = props;

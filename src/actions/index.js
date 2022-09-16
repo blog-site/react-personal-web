@@ -1,3 +1,3 @@
 export * from './auth';
-export * from './archives';
-export * from './archive';
+export * from './archive/archives';
+export * from './archive/archive';

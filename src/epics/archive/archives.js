@@ -6,7 +6,7 @@ import {
   archiveActionType,
   onGetArchives,
   onGetArchivesFail,
-} from '../actions';
+} from '../../actions';
 
 const apiUrl = '/api/';
 const archivesUrl = `${apiUrl}archive/`;
