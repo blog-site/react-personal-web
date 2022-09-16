@@ -3,7 +3,7 @@ import { mergeMap, map, catchError, of } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
 import {
-  archiveActionType,
+  archivesActionType,
   onGetArchives,
   onGetArchivesFail,
 } from '../../actions';
@@ -14,7 +14,7 @@ const archivesViewUrl = `${archivesUrl}view`;
 
 const ArchivesEpic = (action$) =>
   action$.pipe(
-    ofType(archiveActionType.GET_ARCHIVES),
+    ofType(archivesActionType.GET_ARCHIVES),
     mergeMap((action) => {
       return ajax.getJSON(archivesViewUrl).pipe(
         map((res) => onGetArchives(res)),
