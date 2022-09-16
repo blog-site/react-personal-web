@@ -7,13 +7,13 @@ function Navbar() {
       <nav className={NavbarStyle.nav}>
         <ul className={NavbarStyle.ul}>
           <li className={NavbarStyle.li}>
-            <Link to="/">Home</Link>
+            <Link to='/'>Home</Link>
           </li>
           <li className={NavbarStyle.li}>
-            <Link to="/archives">Archives</Link>
+            <Link to='/archives'>Archives</Link>
           </li>
           <li className={NavbarStyle.li}>
-            <Link to="/about">About</Link>
+            <Link to='/about'>About</Link>
           </li>
         </ul>
       </nav>

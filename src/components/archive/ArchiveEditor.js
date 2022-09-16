@@ -68,7 +68,7 @@ function ArchiveEditor(props) {
     <div>
       <form
         value={value}
-        id="archiveEditorForm"
+        id='archiveEditorForm'
         onChange={(newValue) => setValue({
           ...value, 
           [newValue.target.name] : newValue.target.value
@@ -79,20 +79,20 @@ function ArchiveEditor(props) {
       >
         <p>
           <label>slug: </label>
-          <input name="slug" type="text" value={slug} />
+          <input name='slug' type='text' value={slug} />
         </p>
         <p>
           <label>title: </label>
-          <textarea name="title" type="text" value={title} />
+          <textarea name='title' type='text' value={title} />
         </p>
         <p>
           <label>published: </label>
-          <select name="published" value={published}>
+          <select name='published' value={published}>
             <option value={1}>true</option>
             <option value={0}>false</option>
           </select>
         </p>
-        <button type="submit">
+        <button type='submit'>
           Submit
         </button>
       </form>
@@ -100,7 +100,7 @@ function ArchiveEditor(props) {
         value={body}
         onChange={setBody}
         style={{ whiteSpace: 'pre-wrap' }}
-        form="archiveEditorForm"
+        form='archiveEditorForm'
       />
     </div>
   );

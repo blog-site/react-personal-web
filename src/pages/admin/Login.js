@@ -38,7 +38,7 @@ const Login = ({ isAuthenticated }) => {
       <p>Sign into your Session Auth account</p>
       <form
         // value={formData}
-        id="archiveEditorForm"
+        id='archiveEditorForm'
         onChange={(newValue) => setFormData({
           ...formData, 
           [newValue.target.name] : newValue.target.value

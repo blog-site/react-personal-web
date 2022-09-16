@@ -4,7 +4,7 @@ function Home() {
   return (
     <div className={HomeStyle.Home}>
       <div className={HomeStyle.container}>
-        <img src={avatar} className={HomeStyle.avatar} alt="avatar" />
+        <img src={avatar} className={HomeStyle.avatar} alt='avatar' />
         <p>
           Hi,
           <br />
