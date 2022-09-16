@@ -7,24 +7,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 function ShowArchivesEdit() {
-  const archive_list = useSelector(
-    (state) => state.archive.archive_list
+  const archives = useSelector(
+    (state) => state.archive.archives
   );
-  const archive_list_state = useSelector(
-    (state) => state.archive.archive_list_state
+  const archives_state = useSelector(
+    (state) => state.archive.archives_state
   );
   
   const dispatch = useDispatch();
   useEffect(() => {
-    if (archive_list_state === 'init') {
+    if (archives_state === 'init') {
       dispatch(getArchives());
     }
-  }, [archive_list_state, dispatch]);
+  }, [archives_state, dispatch]);
 
   return (
-    archive_list === null ?
+    archives === null ?
       [] :
-      archive_list.map(
+      archives.map(
         (archive) => (
           <div key={archive.slug}>
             <Link to={`/archive/${archive.slug}`}>

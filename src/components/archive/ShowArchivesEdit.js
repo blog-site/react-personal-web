@@ -9,35 +9,35 @@ import { useEffect } from 'react';
 import moment from 'moment';
 
 function ShowArchivesEdit() {
-  const archive_list = useSelector(
-    (state) => state.archive.archive_list
+  const archives = useSelector(
+    (state) => state.archive.archives
   );
-  const archive_list_state = useSelector(
-    (state) => state.archive.archive_list_state
+  const archives_state = useSelector(
+    (state) => state.archive.archives_state
   );
   
   const dispatch = useDispatch();
   useEffect(() => {
-    if (archive_list_state === 'init') {
+    if (archives_state === 'init') {
       dispatch(getArchives());
     }
-  }, [archive_list_state, dispatch]);
+  }, [archives_state, dispatch]);
 
   return (
-    <Archives archive_list={archive_list} />
+    <Archives archives={archives} />
   );
 }
 
 function Archives(props) {
   let _props = props;
-  let archive_list = _props.archive_list;
-  if (Object.keys(archive_list).length === 0) {
+  let archives = _props.archives;
+  if (Object.keys(archives).length === 0) {
     return [];
   }
   return (
     <div className={ShowArchivesEditStyle.Archives}>
       {
-        archive_list.map(
+        archives.map(
           (archive) => (
             <Archive key={archive.slug} archive={archive} />
           )

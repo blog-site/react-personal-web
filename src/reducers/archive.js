@@ -1,9 +1,9 @@
 import { archiveActionType } from '../actions';
 
 const initState = {
-  archive_list: [],
+  archives: [],
   archive: {},
-  archive_list_state: 'init',
+  archives_state: 'init',
   archive_state: 'init',
 };
 
@@ -13,24 +13,24 @@ const reducer = (state = initState, action) => {
   case archiveActionType.TO_INITED_STATE:
     return {
       ...state,
-      archive_list_state: 'inited',
+      archives_state: 'inited',
       archive_state: 'init',
     };
   case archiveActionType.GET_ARCHIVES:
     return {
       ...state,
-      archive_list_state: 'archives_fetching',
+      archives_state: 'archives_fetching',
     };
   case archiveActionType.ON_GET_ARCHIVES:
     return {
       ...state,
-      archive_list_state: 'archives_fetched',
-      archive_list: payload,
+      archives_state: 'archives_fetched',
+      archives: payload,
     };
   case archiveActionType.ON_GET_ARCHIVES_FAIL:
     return {
       ...state,
-      archive_list_state: 'archives_fetch_failed',
+      archives_state: 'archives_fetch_failed',
     };
   case archiveActionType.GET_ARCHIVE:
     return {
