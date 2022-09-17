@@ -8,7 +8,7 @@ const initState = {
 const reducer = (state = initState, action) => {
   const { type, payload } = action;
   switch (type) {
-  case archiveActionType.TO_INITED_STATE:
+  case archiveActionType.TO_ARCHIVE_INITED_STATE:
     return {
       ...state,
       archive: {},

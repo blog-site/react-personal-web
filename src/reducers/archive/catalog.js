@@ -8,7 +8,7 @@ const initState = {
 const reducer = (state = initState, action) => {
   const { type, payload } = action;
   switch (type) {
-  case catalogActionType.TO_INITED_STATE:
+  case catalogActionType.TO_CATALOG_INITED_STATE:
     return {
       ...state,
       catalog: [],

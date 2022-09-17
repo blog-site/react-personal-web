@@ -1,5 +1,5 @@
 export const authActionType = {
-  TO_INITED_STATE: 'To Inited State',
+  TO_AUTH_INITED_STATE: 'To Auth Inited State',
   AUTHENTICATE: 'Authenticate',
   ON_AUTHENTICATE: 'On Authenticate',
   ON_AUTHENTICATE_FAIL: 'On Authenticate Failed',
@@ -19,7 +19,7 @@ export const authActionType = {
 
 export const toAuthInitedState = () => {
   return {
-    type: authActionType.TO_INITED_STATE,
+    type: authActionType.TO_AUTH_INITED_STATE,
   };
 };
 

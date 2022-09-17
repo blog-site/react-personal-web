@@ -8,7 +8,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch(type) {
-  case authActionType.TO_INITED_STATE:
+  case authActionType.TO_AUTH_INITED_STATE:
     return {
       ...state,
       isAuthenticated_state: 'inited',

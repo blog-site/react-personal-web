@@ -1,5 +1,5 @@
 export const archiveActionType = {
-  TO_INITED_STATE: 'To Inited State',
+  TO_ARCHIVE_INITED_STATE: 'To Archive Inited State',
   GET_ARCHIVE: 'Get Archive',
   ON_GET_ARCHIVE: 'On Get Archive',
   ON_GET_ARCHIVE_FAIL: 'On Get Archive Failed',
@@ -16,7 +16,7 @@ export const archiveActionType = {
 
 export const toArchiveInitedState = () => {
   return {
-    type: archiveActionType.TO_INITED_STATE,
+    type: archiveActionType.TO_ARCHIVE_INITED_STATE,
   };
 };
 

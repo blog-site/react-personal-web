@@ -1,5 +1,5 @@
 export const catalogActionType = {
-  TO_INITED_STATE: 'To Inited State',
+  TO_CATALOG_INITED_STATE: 'To Catalog Inited State',
   GET_CATALOG: 'Get Catalog',
   ON_GET_CATALOG: 'On Get Catalog',
   ON_GET_CATALOG_FAIL: 'On Get Catalog Failed',
@@ -7,7 +7,7 @@ export const catalogActionType = {
 
 export const toCatalogInitedState = () => {
   return {
-    type: catalogActionType.TO_INITED_STATE,
+    type: catalogActionType.TO_CATALOG_INITED_STATE,
   };
 };
 
