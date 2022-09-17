@@ -11,7 +11,8 @@ const reducer = (state = initState, action) => {
   case archiveActionType.TO_INITED_STATE:
     return {
       ...state,
-      archive_state: 'init',
+      archive: {},
+      archive_state: 'inited',
     };
   case archiveActionType.GET_ARCHIVE:
     return {

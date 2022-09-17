@@ -11,6 +11,7 @@ const reducer = (state = initState, action) => {
   case archivesActionType.TO_INITED_STATE:
     return {
       ...state,
+      archives: [],
       archives_state: 'inited',
     };
   case archivesActionType.GET_ARCHIVES:

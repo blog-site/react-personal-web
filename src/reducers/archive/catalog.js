@@ -11,6 +11,7 @@ const reducer = (state = initState, action) => {
   case catalogActionType.TO_INITED_STATE:
     return {
       ...state,
+      catalog: [],
       catalog_state: 'inited',
     };
   case catalogActionType.GET_CATALOG:
