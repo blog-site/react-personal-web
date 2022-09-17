@@ -20,10 +20,9 @@ function ShowArchivesEdit() {
       dispatch(getArchives());
     }
   }, [archives_state, dispatch]);
-
+  console.log(`archives: ${archives}`);
   return (
-    archives === null ?
-      [] :
+    archives instanceof Array ?
       archives.map(
         (archive) => (
           <div key={archive.slug}>
@@ -32,7 +31,8 @@ function ShowArchivesEdit() {
             </Link>
           </div>
         )
-      )
+      ) :
+      []
   );
 }
 
