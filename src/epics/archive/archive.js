@@ -16,13 +16,13 @@ import {
 
 const apiUrl = '/api/';
 const archiveUrl = `${apiUrl}archive/`;
-const archiveViewUrl = `${archiveUrl}view`;
+const archiveViewUrl = `${archiveUrl}view/`;
 
 const ArchiveEpic = (action$) =>
   action$.pipe(
     ofType(archiveActionType.GET_ARCHIVE),
     mergeMap((action) => {
-      return ajax.getJSON(`${archiveViewUrl}/${action.payload.slug}`).pipe(
+      return ajax.getJSON(`${archiveViewUrl}${action.payload.slug}/`).pipe(
         map((res) => onGetArchive(res)),
         catchError((error) => of(onGetArchiveFail(error)))
       );
@@ -34,7 +34,7 @@ const PostArchiveEpic = (action$) =>
     ofType(archiveActionType.POST_ARCHIVE),
     mergeMap((action) => {
       return ajax
-        .post(`${archiveViewUrl}/`, action.payload)
+        .post(`${archiveViewUrl}`, action.payload)
         .pipe(
           map((res) => onPostArchive()),
           catchError((error) => of(onPostArchiveFail(error)))
@@ -47,7 +47,7 @@ const PatchArchiveEpic = (action$) =>
     ofType(archiveActionType.PATCH_ARCHIVE),
     mergeMap((action) => {
       return ajax
-        .patch(`${archiveViewUrl}/${action.payload.slug}/`, action.payload)
+        .patch(`${archiveViewUrl}${action.payload.slug}/`, action.payload)
         .pipe(
           map((res) => onPatchArchive()),
           catchError((error) => of(onPatchArchiveFail(error)))
@@ -60,7 +60,7 @@ const DeleteArchiveEpic = (action$) =>
     ofType(archiveActionType.DELETE_ARCHIVE),
     mergeMap((action) => {
       return ajax
-        .delete(`${archiveViewUrl}/${action.payload.slug}/`, action.payload)
+        .delete(`${archiveViewUrl}${action.payload.slug}/`, action.payload)
         .pipe(
           map((res) => onDeleteArchive()),
           catchError((error) => of(onDeleteArchiveFail(error)))

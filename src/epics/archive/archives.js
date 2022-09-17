@@ -9,14 +9,14 @@ import {
 } from '../../actions';
 
 const apiUrl = '/api/';
-const archivesUrl = `${apiUrl}archive/`;
-const archivesViewUrl = `${archivesUrl}view`;
+const archiveUrl = `${apiUrl}archive/`;
+const archiveViewUrl = `${archiveUrl}view/`;
 
 const ArchivesEpic = (action$) =>
   action$.pipe(
     ofType(archivesActionType.GET_ARCHIVES),
     mergeMap((action) => {
-      return ajax.getJSON(archivesViewUrl).pipe(
+      return ajax.getJSON(archiveViewUrl).pipe(
         map((res) => onGetArchives(res)),
         catchError((error) => of(onGetArchivesFail(error)))
       );

@@ -10,7 +10,7 @@ import {
 
 const apiUrl = '/api/';
 const catalogUrl = `${apiUrl}catalog/`;
-const catalogViewUrl = `${catalogUrl}view`;
+const catalogViewUrl = `${catalogUrl}view/`;
 
 const CatalogEpic = (action$) =>
   action$.pipe(
