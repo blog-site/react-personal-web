@@ -54,7 +54,6 @@ function Archive(props){
       <Markdown
         className={ShowArchiveStyle.Content}
       >
-        # Loading
       </Markdown>
     );
   }
