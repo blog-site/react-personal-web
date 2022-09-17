@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getArchives } from '../../../actions';
+import { getArchives, toArchivesInitedState } from '../../../actions';
 
 function ShowArchivesEdit() {
   const archives = useSelector(
@@ -16,8 +16,16 @@ function ShowArchivesEdit() {
   
   const dispatch = useDispatch();
   useEffect(() => {
-    if (archives_state === 'init') {
+    if (archives_state === 'archives_fetch_failed'){
+      console.log('state failed');
+    }
+    else if (archives_state === 'init' || archives_state === 'inited') {
+      console.log(`get (${archives_state})`);
       dispatch(getArchives());
+    }
+    else if (archives_state !== 'archives_fetched' && archives_state !== 'archives_fetching'){
+      console.log(`init (${archives_state})`);
+      dispatch(toArchivesInitedState());
     }
   }, [archives_state, dispatch]);
   return (
