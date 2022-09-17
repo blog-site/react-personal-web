@@ -20,11 +20,9 @@ function ShowArchivesEdit() {
       console.log('state failed');
     }
     else if (archives_state === 'init' || archives_state === 'inited') {
-      console.log(`get (${archives_state})`);
       dispatch(getArchives());
     }
     else if (archives_state !== 'archives_fetched' && archives_state !== 'archives_fetching'){
-      console.log(`init (${archives_state})`);
       dispatch(toArchivesInitedState());
     }
   }, [archives_state, dispatch]);
