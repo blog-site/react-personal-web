@@ -15,23 +15,3 @@
 .li a {
   text-decoration: none;
 }
-.li:hover {
-  color: white;
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .li:hover {
-    animation: App-logo-spin 0.1s linear;
-    transform: scale(1.2) translate(10%, 0%);
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.2) translate(10%, 0%);
-  }
-}
