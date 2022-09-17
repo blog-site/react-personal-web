@@ -8,10 +8,10 @@ import { getArchives } from '../../../actions';
 
 function ShowArchivesEdit() {
   const archives = useSelector(
-    (state) => state.archive.archives
+    (state) => state.archives.archives
   );
   const archives_state = useSelector(
-    (state) => state.archive.archives_state
+    (state) => state.archives.archives_state
   );
   
   const dispatch = useDispatch();
@@ -20,7 +20,6 @@ function ShowArchivesEdit() {
       dispatch(getArchives());
     }
   }, [archives_state, dispatch]);
-  console.log(`archives: ${archives}`);
   return (
     archives instanceof Array ?
       archives.map(
