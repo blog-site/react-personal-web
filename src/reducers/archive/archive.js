@@ -22,7 +22,7 @@ const reducer = (state = initState, action) => {
   case archiveActionType.ON_GET_ARCHIVE:
     return {
       ...state,
-      archive_state: 'archive_fetched',
+      archive_state: `archive_fetched: ${payload.slug}`,
       archive: payload,
     };
   case archiveActionType.ON_GET_ARCHIVE_FAIL:

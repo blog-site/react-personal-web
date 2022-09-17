@@ -4,7 +4,7 @@ import ShowArchiveStyle from './ShowArchive.module.scss';
 import Markdown from '../../shared/Markdown.component';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getArchive } from '../../../actions';
+import { getArchive, toArchiveInitedState } from '../../../actions';
 
 import NoMatch from '../../../pages/NoMatch';
 
@@ -21,17 +21,14 @@ function ShowArchive(props) {
   
   const dispatch = useDispatch();
   useEffect(() => {
-    if(archive_state === 'archive_fetch_failed'){
+    if (archive_state === 'archive_fetch_failed'){
       console.log('state failed');
     }
-    else if (archive_state === 'init') {
+    else if (archive_state === 'init' || archive_state === 'inited'){
       dispatch(getArchive({ slug: slug }));
     }
-    else if (('slug' in archive) === false) {
-      dispatch(getArchive({ slug: slug }));
-    }
-    else if (archive.slug !== slug) {
-      dispatch(getArchive({ slug: slug }));
+    else if (archive_state !== `archive_fetched: ${slug}` && archive_state !== 'archive_fetching'){
+      dispatch(toArchiveInitedState());
     }
   }, [archive_state, dispatch]);
   
