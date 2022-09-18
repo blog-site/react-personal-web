@@ -5,10 +5,9 @@ import { ArchiveEditor } from '../../components';
 
 function UpdateArchive() {
   let params = useParams();
-  const slug = params.slug;
   return (
     <div className={UpdateArchiveStyle.UpdateArchive}>
-      <ArchiveEditor slug={slug} />
+      <ArchiveEditor slug={params.slug} />
     </div>
   );
 }
