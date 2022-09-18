@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login } from '../../actions/auth';
+import { login, checkAuthenticate } from '../../actions/auth';
 import CSRFToken from '../../components/auth/CSRFToken';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Login = ({ isAuthenticated }) => {
+const Login = () => {
+  const [csrfToken, setCsrfToken] = useState('');
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
-
   const { username, password } = formData;
   
+  const isAuthenticated = useSelector(
+    (state) => state.auth.isAuthenticated
+  );
+
   const isAuthenticated_state = useSelector(
     (state) => state.auth.isAuthenticated_state
   );
   
   const dispatch = useDispatch();
-  useEffect(() => {}, [isAuthenticated_state, dispatch]);
+  useEffect(() => {
+    if (isAuthenticated === 'init') {
+      fetchToken();
+      dispatch(checkAuthenticate('csrfToken'));
+    }
+  }, [isAuthenticated_state, dispatch]);
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,11 +38,16 @@ const Login = ({ isAuthenticated }) => {
     dispatch(login(formData));
   };
 
-  if (isAuthenticated)
+  async function fetchToken() {
+    let token = CSRFToken();
+    setCsrfToken(token);
+  }
+
+  if (isAuthenticated === true)
     return <Navigate to='/' />;
 
   return (
-    <div className='container mt-5'>
+    <div>
       <h1>Sign In</h1>
       <p>Sign into your Session Auth account</p>
       <form
@@ -45,11 +59,10 @@ const Login = ({ isAuthenticated }) => {
         })}
         onSubmit={(e) => onSubmit(e)}
       >
-        <CSRFToken />
-        <div className='form-group'>
-          <label className='form-label'>Username: </label>
+        <input type='hidden' name='csrfmiddlewaretoken' value={csrfToken} />
+        <div>
+          <label>Username: </label>
           <input
-            className='form-control'
             type='text'
             placeholder='Username*'
             name='username'
@@ -58,10 +71,9 @@ const Login = ({ isAuthenticated }) => {
             required
           />
         </div>
-        <div className='form-group'>
-          <label className='form-label mt-3'>Password: </label>
+        <div>
+          <label>Password: </label>
           <input
-            className='form-control'
             type='password'
             placeholder='Password*'
             name='password'
@@ -71,9 +83,9 @@ const Login = ({ isAuthenticated }) => {
             required
           />
         </div>
-        <button className='btn btn-primary mt-3' type='submit'>Login</button>
+        <button type='submit'>Login</button>
       </form>
-      <p className='mt-3'>
+      <p>
         Not having an Account? <Link to='/register'>Sign Up</Link>
       </p>
     </div>

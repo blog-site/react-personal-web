@@ -1,7 +1,7 @@
 import { authActionType } from '../actions';
 
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: 'init',
   isAuthenticated_state: 'init',
 };
 
@@ -12,25 +12,24 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       isAuthenticated_state: 'inited',
-      isAuthenticated: payload,
+      isAuthenticated: 'inited',
     };
   case authActionType.AUTHENTICATE:
     return {
       ...state,
       isAuthenticated_state: 'authenticating',
-      isAuthenticated: payload,
     };
   case authActionType.ON_AUTHENTICATE:
     return {
       ...state,
       isAuthenticated_state: 'authenticated',
-      isAuthenticated: payload,
+      isAuthenticated: payload.isAuthenticated,
     };
   case authActionType.ON_AUTHENTICATE_FAIL:
     return {
       ...state,
       isAuthenticated_state: 'authenticate_failed',
-      isAuthenticated: payload,
+      isAuthenticated: false,
     };
   case authActionType.REGISTER:
     return {

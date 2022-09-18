@@ -31,9 +31,9 @@ export const CheckAuthenticateEpic = (action$) =>
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        url: `${coreUrl}session`
+        url: `${coreUrl}session/`
       }).pipe(
-        map((res) => onCheckAuthenticate(res)),
+        map((res) => onCheckAuthenticate(res.response)),
         catchError((error) => of(onCheckAuthenticateFail(error)))
       );
     })
@@ -54,7 +54,7 @@ export const LoginEpic = (action$) =>
         url: `${coreUrl}login/`,
         body: action.payload
       }).pipe(
-        map((res) => onLogin(res)),
+        map((res) => onLogin(res.response)),
         catchError((error) => of(onLoginFail(error)))
       );
     })
@@ -75,7 +75,7 @@ export const LogoutEpic = (action$) =>
         url: `${coreUrl}logout/`,
         body: action.payload
       }).pipe(
-        map((res) => onLogout(res)),
+        map((res) => onLogout(res.response)),
         catchError((error) => of(onLogoutFail(error)))
       );
     })
@@ -96,7 +96,7 @@ export const RegisterEpic = (action$) =>
         url: `${coreUrl}register/`,
         body: action.payload
       }).pipe(
-        map((res) => onRegister(res)),
+        map((res) => onRegister(res.response)),
         catchError((error) => of(onRegisterFail(error)))
       );
     })
@@ -117,7 +117,7 @@ export const DeleteAccountEpic = (action$) =>
         url: `${coreUrl}delete-account/`,
         body: action.payload
       }).pipe(
-        map((res) => onDeleteAccount(res)),
+        map((res) => onDeleteAccount(res.response)),
         catchError((error) => of(onDeleteAccountFail(error)))
       );
     })

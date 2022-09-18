@@ -4,9 +4,6 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 
 function Home() {
-  const isAuthenticated = useSelector(
-    (state) => state.auth.isAuthenticated
-  );
   return (
     <motion.div
       className={HomeStyle.Home}
