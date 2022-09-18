@@ -4,22 +4,28 @@ import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getArchives } from '../../../actions';
+import { getArchives, toArchivesInitedState } from '../../../actions';
 
 import moment from 'moment';
 
 function ShowArchivesEdit() {
   const archives = useSelector(
-    (state) => state.archive.archives
+    (state) => state.archives.archives
   );
   const archives_state = useSelector(
-    (state) => state.archive.archives_state
+    (state) => state.archives.archives_state
   );
   
   const dispatch = useDispatch();
   useEffect(() => {
-    if (archives_state === 'init') {
+    if (archives_state === 'archives_fetch_failed'){
+      console.log('state failed');
+    }
+    else if (archives_state === 'init' || archives_state === 'inited') {
       dispatch(getArchives());
+    }
+    else if (archives_state !== 'archives_fetched' && archives_state !== 'archives_fetching'){
+      dispatch(toArchivesInitedState());
     }
   }, [archives_state, dispatch]);
 
@@ -31,6 +37,9 @@ function ShowArchivesEdit() {
 function Archives(props) {
   let _props = props;
   let archives = _props.archives;
+  if (archives === undefined) {
+    return [];
+  }
   if (Object.keys(archives).length === 0) {
     return [];
   }
