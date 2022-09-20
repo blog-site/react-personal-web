@@ -1,7 +1,22 @@
 .Archives {
-  display: flex;
-  flex-direction: column;
+  max-width: calc(90% - 10rem);
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .Archive {
-  color: gray;
+  color: orange;
+  border-radius: 10px;
+  margin: calc(0.2% + 0.8rem);
+  align-items: center;
+  padding: 0 calc(1% + 1rem);
+  backdrop-filter: blur(33px)
+                   contrast(80%)
+                   brightness(100%);
+}
+
+.ArchiveLine {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
