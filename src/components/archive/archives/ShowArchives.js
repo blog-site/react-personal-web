@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import ShowArchivesStyle from './ShowArchives.module.scss';
 import { Link } from 'react-router-dom';
 
+import { motion } from 'framer-motion';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { checkAuthenticate } from '../../../actions/auth';
 import { getArchives, toArchivesInitedState } from '../../../actions';
@@ -90,7 +92,12 @@ function Archive(props) {
   let isAuthenticated = _props.isAuthenticated;
   var date_published = moment(archive.date_published).format('YYYY-MM-DD');
   return (
-    <div className={ShowArchivesStyle.Archive}>
+    <motion.div
+      className={ShowArchivesStyle.Archive}
+      animate={{ opacity: [0, 100], backdropFilter: ['blur(0px) contrast(100%)', 'blur(33px) contrast(80%)'] }}
+      whileHover={{ scale: 1.01 }}
+      exit={{ opacity: 0, y: 5 }}
+    >
       <div className={ShowArchivesStyle.ArchiveLine}>
         <Link to={`/archive/${archive.slug}`}>
           <h2>{archive.title}</h2>
@@ -105,7 +112,7 @@ function Archive(props) {
         <p></p>
         <p>published on: {date_published}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

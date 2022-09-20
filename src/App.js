@@ -1,7 +1,7 @@
 import AppStyle from './App.module.scss';
 
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 import Layout from './hocs/Layout';
 import { Navbar } from './components';

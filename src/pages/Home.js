@@ -12,7 +12,12 @@ function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className={HomeStyle.container}>
+      <motion.div
+        className={HomeStyle.container}
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0 }}
+      >
         <img src={avatar} className={HomeStyle.avatar} alt='avatar' />
         <p>
           Hi,
@@ -21,7 +26,7 @@ function Home() {
           <br />
           A [job name] in [company]
         </p>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
