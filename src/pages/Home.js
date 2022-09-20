@@ -2,7 +2,7 @@ import HomeStyle from './Home.module.scss';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 
-import avatar from '../avatar.svg';
+import avatar from '../asset/avatar.jpg';
 
 function Home() {
   return (

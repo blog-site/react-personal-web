@@ -1,16 +1,18 @@
 .Archives {
-  max-width: 80%;
+  max-width: calc(90% - 10rem);
   margin-left: auto;
   margin-right: auto;
 }
 
 .Archive {
   color: orange;
-  background-color: darkblue;
   border-radius: 10px;
-  margin: 1%;
+  margin: calc(0.2% + 0.8rem);
   align-items: center;
-  padding: 0% 2%;
+  padding: 0 calc(1% + 1rem);
+  backdrop-filter: blur(33px)
+                   contrast(80%)
+                   brightness(100%);
 }
 
 .ArchiveLine {
