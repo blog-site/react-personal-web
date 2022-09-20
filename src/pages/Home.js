@@ -1,7 +1,8 @@
 import HomeStyle from './Home.module.scss';
-import avatar from '../avatar.svg';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
+
+import avatar from '../avatar.svg';
 
 function Home() {
   return (
