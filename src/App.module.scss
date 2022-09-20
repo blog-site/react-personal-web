@@ -1,18 +1,15 @@
 .App {
   text-align: center;
-  background-image: url(./asset/backgroundImage.jpg); 
+  background-image: url(./asset/backgroundImage.jpg);
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-position: ceil;
   background-repeat: no-repeat;
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
+  
   margin: auto; 
-  min-width: 50%;
-  min-height: 50%;
+  width: 100vw;
+  height: 100vh;
 }
