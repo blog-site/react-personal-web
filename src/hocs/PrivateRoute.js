@@ -19,7 +19,7 @@ function PrivateRoute () {
   useEffect(() => {
     if (isAuthenticated === 'init') {
       fetchToken();
-      dispatch(checkAuthenticate('csrfToken'));
+      dispatch(checkAuthenticate(csrfToken));
     }
   }, [isAuthenticated_state, dispatch]);
 
