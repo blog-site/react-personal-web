@@ -4,30 +4,77 @@ import { useSelector } from 'react-redux';
 
 import avatar from '../asset/avatar.jpg';
 
+const variants = {
+  init: { opacity: 0 },
+  view: {
+    opacity: [0, 1],
+    transition: {
+      duration: 0.25
+    }
+  },
+  exit: { opacity: 0, y: 5 },
+};
+
+const variantsAvatar = {
+  view: { 
+    scale: [1, 2, 2, 1],
+    rotate: [0, 0, 360, 360],
+    borderRadius: ['20%', '20%', '50%', '50%', '20%'],
+    transition: {
+      delay: 0.25,
+      duration: 1
+    }
+  },
+  hover: { scale: 1.01 },
+  tap: { scale: 0.99 },
+};
+
+const variantsIntro = {
+  view: {
+    scale: ['20%', '100%'],
+    scaleX: [0, 1],
+    x: ['-10%', '0%'],
+    transition: {
+      delay: 1.25,
+      duration: 0.25
+    }
+  },
+};
+
 function Home() {
   return (
-    <motion.div
+    <div
       className={HomeStyle.Home}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
     >
       <motion.div
         className={HomeStyle.container}
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0 }}
+        initial={ 'init' }
+        animate={ 'view' }
+        exit={ 'exit' }
+        variants={ variants }
       >
-        <img src={avatar} className={HomeStyle.avatar} alt='avatar' />
-        <p>
+        <motion.img
+          src={avatar}
+          className={HomeStyle.avatar}
+          alt='avatar'
+          animate={ 'view' }
+          whileHover={ 'hover' }
+          whileTap={ 'tap' }
+          variants={ variantsAvatar }
+        />
+        <motion.p
+          className={HomeStyle.intro}
+          animate={ 'view' }
+          variants={ variantsIntro }
+        >
           Hi,
           <br />
           I am [name],
           <br />
           A [job name] in [company]
-        </p>
+        </motion.p>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
 

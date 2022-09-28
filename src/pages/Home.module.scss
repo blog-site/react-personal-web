@@ -11,6 +11,10 @@
 }
 .avatar {
   margin: 1rem;
-  width: clamp(20%, 10rem, 10%);
+  width: min(10vw, 10rem);
   border-radius: 35%;
+  z-index: 1;
+}
+.intro {
+  transform-origin: 0%;
 }
