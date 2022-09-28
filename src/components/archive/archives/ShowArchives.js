@@ -120,23 +120,18 @@ function Archive(props) {
       transition={{ type: 'spring', stiffness: 400, damping: 15 }}
       variants={ variants }
     >
-      <div className={ShowArchivesStyle.ArchiveLine}>
-        <Link
-          to={`/archive/${archive.slug}`}
-          onClick={() => setClick(true)}
-        >
+      <Link
+        to={`/archive/${archive.slug}`}
+        onClick={() => setClick(true)}
+      >
+        <div className={ShowArchivesStyle.ArchiveLine}>
           <h2>{archive.title}</h2>
-        </Link>
-        {isAuthenticated && 
-        <Link to={`/admin/update-archive/${archive.slug}`}>
-          <p>Edit</p>
-        </Link>
-        }
-      </div>
-      <div className={ShowArchivesStyle.ArchiveLine}>
-        <p></p>
-        <p>published on: {date_published}</p>
-      </div>
+        </div>
+        <div className={ShowArchivesStyle.ArchiveLine}>
+          <p></p>
+          <p>published on: {date_published}</p>
+        </div>
+      </Link>
     </motion.div>
   );
 }
