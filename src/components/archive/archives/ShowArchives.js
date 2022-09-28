@@ -13,13 +13,11 @@ import moment from 'moment';
 
 const variants = {
   init: { opacity: 0 },
-  view: { 
+  view: (custom) => ({ 
     opacity: [0, 1],
     backdropFilter: ['blur(33px) contrast(80%)', 'blur(33px) contrast(80%)'],
-    transition: {
-      duration: 2
-    }
-  },
+    transition: { delay: 2 * (1 / 2 - 1 / (custom + 2)) }
+  }),
   hover: { scale: 1.01 },
   tap: { scale: 0.99 },
   click: { opacity: 0, scale: 1.1 },
@@ -89,8 +87,9 @@ function Archives(props) {
     <div className={ShowArchivesStyle.Archives}>
       {
         archives.map(
-          (archive) => (
+          (archive, index) => (
             <Archive
+              index={index}
               key={archive.slug}
               archive={archive}
               isAuthenticated={isAuthenticated} />
@@ -105,12 +104,14 @@ function Archive(props) {
   let _props = props;
   let archive = _props.archive;
   let isAuthenticated = _props.isAuthenticated;
+  let index = _props.index;
   var date_published = moment(archive.date_published).format('YYYY-MM-DD');
 
   const [isClick, setClick] = useState(false);
   return (
     <motion.div
       className={ShowArchivesStyle.Archive}
+      custom={ index }
       initial={ 'init' }
       animate={ 'view' }
       whileHover={ 'hover' }
