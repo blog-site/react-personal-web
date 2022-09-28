@@ -44,7 +44,7 @@ const Login = () => {
   }
 
   if (isAuthenticated === true)
-    return <Navigate to='/' />;
+    return <Navigate to='/admin' />;
 
   return (
     <div>
