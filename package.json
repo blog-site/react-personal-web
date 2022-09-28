@@ -29,7 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "sudo cp -rf build/* /var/www/tony-web"
+    "deploy-tony": "sudo cp -rf build/* /var/www/tony-web",
+    "deploy-ycw": "sudo cp -rf build/* /var/www/ycw-web"
   },
   "eslintConfig": {
     "extends": [
