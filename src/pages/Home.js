@@ -25,8 +25,6 @@ const variantsAvatar = {
       duration: 1
     }
   },
-  hover: { scale: 1.01 },
-  tap: { scale: 0.99 },
 };
 
 const variantsIntro = {
@@ -58,8 +56,6 @@ function Home() {
           className={HomeStyle.avatar}
           alt='avatar'
           animate={ 'view' }
-          whileHover={ 'hover' }
-          whileTap={ 'tap' }
           variants={ variantsAvatar }
         />
         <motion.p
@@ -69,9 +65,9 @@ function Home() {
         >
           Hi,
           <br />
-          I am [name],
+          I am Lolainta Chi,
           <br />
-          A [job name] in [company]
+          A student in NYCU
         </motion.p>
       </motion.div>
     </div>
